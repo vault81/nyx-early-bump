@@ -89,9 +89,6 @@ writeShellScript "update-cachyos" ''
     cat "$(nix build '.#packages.x86_64-linux.linuxPackages_cachyos-server.kernel.kconfigToNix' --no-link --print-out-paths)" \
       > pkgs/linux-cachyos/config-nix/cachyos-server.x86_64-linux.nix
 
-    cat "$(nix build '.#packages.x86_64-linux.linuxPackages_cachyos-hardened.kernel.kconfigToNix' --no-link --print-out-paths)" \
-      > pkgs/linux-cachyos/config-nix/cachyos-hardened.x86_64-linux.nix
-
     message="linux_cachyos: $localVer -> $latestVer"
   else
     echo "Error, wrong kernel selected, please either update linux_cachyos or linux_cachyos-rc"

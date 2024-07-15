@@ -78,15 +78,6 @@ in
     description = "Linux EEVDF scheduler Kernel by CachyOS targeted for Servers";
   };
 
-  cachyos-hardened = mkCachyKernel {
-    taste = "linux-cachyos-hardened";
-    configPath = ./config-nix/cachyos-hardened.x86_64-linux.nix;
-    cpuSched = "hardened";
-
-    withNTSync = false;
-    withHDR = false;
-  };
-
   zfs = final.zfs_unstable.overrideAttrs (prevAttrs: {
     src = zfs-source;
     patches = [ ];
